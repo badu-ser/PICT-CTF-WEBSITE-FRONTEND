@@ -160,5 +160,28 @@
         
     <script src="assets/js/particles.js"></script>
     <script src="assets/js/app.js"></script>
+    <script>document.querySelector("form").addEventListener("submit", async function (event) {
+    event.preventDefault(); // Prevent default form submission
+    
+    let data = {
+        firstName: document.getElementById("firstName").value,
+        lastName: document.getElementById("lastName").value,
+        username: document.getElementById("username").value,
+        email: document.getElementById("email").value,
+        password: document.getElementById("password").value,
+        college: document.getElementById("college").value,
+        year: document.getElementById("year").value,
+        department: document.getElementById("dept").value
+    };
+
+    let response = await fetch("https://yourportfolio.com/save_registration.php", { // Replace with your actual URL
+        method: "POST",
+        body: JSON.stringify(data),
+        headers: { "Content-Type": "application/json" }
+    });
+
+    let result = await response.json();
+    alert(result.message);
+});</script>
   </body>
 </html>
