@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Capture The Flag - Register</title>
+    <title>X4 eSports India- Register</title>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     
@@ -113,13 +113,11 @@
             </div>
           </div>
           <div class="col-md-4 mb-3">
-            <label for="state">Year</label>
-            <select class="custom-select d-block w-100" id="year" required>
+            <label for="state">Are you new to X4 eSports</label>
+            <select class="custom-select d-block w-100" id="new" required>
               <option value="">Choose...</option>
-              <option>First Year</option>
-              <option>Second Year</option>
-              <option>Third Year</option>
-              <option>Final Year</option>
+              <option>Yes</option>
+              <option>No</option>
             </select>
             <div class="invalid-feedback">
               Please select a valid year
@@ -160,33 +158,6 @@
         
     <script src="assets/js/particles.js"></script>
     <script src="assets/js/app.js"></script>
-    <script>document.querySelector("form").addEventListener("submit", async function (event) {
-    event.preventDefault(); // Prevent default form submission
-    
-    let data = {
-        firstName: document.getElementById("firstName").value,
-        lastName: document.getElementById("lastName").value,
-        username: document.getElementById("username").value,
-        email: document.getElementById("email").value,
-        password: document.getElementById("password").value,
-        college: document.getElementById("college").value,
-        year: document.getElementById("year").value,
-        department: document.getElementById("dept").value
-    };
 
-    let response = await fetch("https://x4esports.42web.io/regdata.php", { // Replace with your actual URL
-        method: "POST",
-        body: JSON.stringify(data),
-        headers: { "Content-Type": "application/json" }
-    });
-
-    let result = await response.json();
-    alert(result.message);
-});</script>
-    <script>let response = await fetch("https://x4esports.42web.io/regdata.php", {
-    method: "POST",
-    body: JSON.stringify(data),
-    headers: { "Content-Type": "application/json" }
-});</script>
   </body>
 </html>
