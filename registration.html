@@ -51,14 +51,14 @@
         <div class="row">
           <div class="col-md-6 mb-3">
             <label for="firstName">First name</label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="" value="" required>
             <div class="invalid-feedback">
               Valid first name is required.
             </div>
           </div>
           <div class="col-md-6 mb-3">
             <label for="lastName">Last name</label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+            <input type="text" class="form-control" id="lastName" name="lastName" placeholder="" value="" required>
             <div class="invalid-feedback">
               Valid last name is required.
             </div>
@@ -71,7 +71,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text">⚡</span>
             </div>
-            <input type="text" class="form-control" id="username" placeholder="Username" required>
+            <input type="text" class="form-control" id="username" name="username" placeholder="Username" required>
             <div class="invalid-feedback" style="width: 100%;">
               Your In-game name is required.
             </div>
@@ -80,7 +80,7 @@
 
         <div class="mb-3">
           <label for="email">Email <span class="text-muted"></span></label>
-          <input type="email" class="form-control" id="email" placeholder="you@example.com">
+          <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com">
           <div class="invalid-feedback">
             Please enter a valid email address.
           </div>
@@ -92,7 +92,7 @@
               <div class="input-group-prepend">
                 <span class="input-group-text">+91</span>
               </div>
-              <input type="text" class="form-control" id="number" placeholder="Make sure you enter a valid number for future contacts!">
+              <input type="text" class="form-control" id="number" name="number" placeholder="Make sure you enter a valid number for future contacts!">
               <div class="invalid-feedback">
                 Please enter a valid WhatsApp number.
               </div>
@@ -102,7 +102,7 @@
         <div class="row">
           <div class="col-md-5 mb-3">
             <label for="country">Select Tournament</label>
-            <select class="custom-select d-block w-100" id="tournament" required>
+            <select class="custom-select d-block w-100" id="tournament" name="tournament" required>
               <option value="">Choose...</option>
               <option>Rs. 30 BR solo tournament</option>
               <option>Rs. 200 Clash Squad tournament</option>
@@ -114,7 +114,7 @@
           </div>
           <div class="col-md-4 mb-3">
             <label for="state">Are you new to X4 eSports</label>
-            <select class="custom-select d-block w-100" id="new" required>
+            <select class="custom-select d-block w-100" id="new" name="new" required>
               <option value="">Choose...</option>
               <option>Yes</option>
               <option>No</option>
@@ -125,7 +125,7 @@
           </div>
           <div class="col-md-3 mb-3">
             <label for="dept">Where did you heard about us? (Refer code)</label>
-            <input type="text" class="form-control" id="refer" placeholder="" >
+            <input type="text" class="form-control" id="refer" name="refer" placeholder="" >
             <div class="invalid-feedback">
               Refer code/source details are optional.
             </div>
