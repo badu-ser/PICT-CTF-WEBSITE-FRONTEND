@@ -1,22 +1,21 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Validate inputs
-        if (empty($_POST['l_nickname']) || empty($_POST['l_email']) || empty($_POST['l_cid']) || empty($_POST['l_phone']) || empty($_POST['crew']) || empty($_POST['p2']) || empty($_POST['p3']) || empty($_POST['p4']) || !filter_var($_POST['l_email'], FILTER_VALIDATE_EMAIL)) {
+        if (empty($_POST['firstName']) || empty($_POST['lastName']) || empty($_POST['username']) || empty($_POST['email']) || empty($_POST['number']) || empty($_POST['tournament']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
                 echo "No arguments Provided!";
                         exit;
                             }
 
                                 // Assign form data to variables
-                                    $l_nickname = $_POST['l_nickname'];
-                                        $l_email = $_POST['l_email'];
-                                            $l_cid = $_POST['l_cid'];
-                                                $l_phone = $_POST['l_phone'];
-                                                    $crew = $_POST['crew'];
-                                                        $p2 = $_POST['p2'];
-                                                            $p3 = $_POST['p3'];
-                                                                $p4 = $_POST['p4'];
-                                                                    $payment = 'Not Paid';
-
+                                    $firstName = $_POST['firstName'];
+                                        $lastName = $_POST['lastName'];
+                                            $username = $_POST['username'];
+                                                $email = $_POST['email'];
+                                                    $number = $_POST['number'];
+                                                        $tournament = $_POST['tournament'];
+                                                            $new = $_POST['new'];
+                                                                $refer = $_POST['refer'];
+                                                                    
                                                                         // Database connection details
                                                                             $servername = "sql313.byetcluster.com"; // Your server name
                                                                                 $username = "if0_38226882"; // Your database username
@@ -31,22 +30,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                                                                                                                 die("Connection failed: " . $conn->connect_error);
                                                                                                                     }
 
-                                                                                                                        // Check if the CID already exists
-                                                                                                                            $stmt = $conn->prepare("SELECT * FROM register WHERE l_cid = ?");
-                                                                                                                                $stmt->bind_param("s", $l_cid);
-                                                                                                                                    $stmt->execute();
-                                                                                                                                        $stmt->store_result();
-                                                                                                                                            $count = $stmt->num_rows;
-                                                                                                                                                $stmt->close();
-
-                                                                                                                                                    if ($count > 0) {
-                                                                                                                                                            // Redirect if CID already exists
-                                                                                                                                                                    header("Location: fail.html");
-                                                                                                                                                                            exit;
-                                                                                                                                                                                } else {
+                                                                                                                   
+                                                                                                                                                                              } else {
                                                                                                                                                                                         // Insert new registration
-                                                                                                                                                                                                $stmt = $conn->prepare("INSERT INTO register (crew, l_nickname, l_email, l_phone, l_cid, p2, p3, p4, payment) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                                                                                                                                                                                                        $stmt->bind_param("sssssssss", $crew, $l_nickname, $l_email, $l_phone, $l_cid, $p2, $p3, $p4, $payment);
+                                                                                                                                                                                                $stmt = $conn->prepare("INSERT INTO register (firstName, lastName, username, email, number, tournament, new, refer) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                                                                                                                                                                                                        $stmt->bind_param("sssssssss", $firstName, $lastName, $username, $email, $number, $tournament, $new, $refer);
 
                                                                                                                                                                                                                 if ($stmt->execute()) {
                                                                                                                                                                                                                             // Redirect on success
